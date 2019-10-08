@@ -1,6 +1,5 @@
 import json
 from flask import Flask, render_template
-from jinja2 import Template
 import crawler
 app = Flask(__name__)
 
@@ -12,6 +11,5 @@ def start():
         link = data["url"]
         articles = data["articles"]
     return render_template('template.html', link=link, list=articles)
-
 if __name__ =="__main__":
     app.run(host = '0.0.0.0', port=8000, debug=True)
