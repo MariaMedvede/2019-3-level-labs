@@ -4,11 +4,11 @@ import crawler
 
 class TestProg(unittest.TestCase):
     def test_structure(self):
-        artjson = crawler.publish_report('data_file.json', crawler.articles)
+        artjson = crawler.publish_report('data_file.json', crawler.find_articles(crawler.get_html_page('https://sobesednik.ru/psychology')))
         self.assertEqual(artjson["url"] == "", False)
 
     def test_structarticle(self):
-        artjson = crawler.publish_report('data_file.json', crawler.articles)
+        artjson = crawler.publish_report('data_file.json', crawler.find_articles(crawler.get_html_page('https://sobesednik.ru/psychology')))
         self.assertEqual(artjson["articles"][0]['title'] == '', False)
 
     def test_get_html_page(self):

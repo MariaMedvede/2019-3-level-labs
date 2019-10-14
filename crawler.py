@@ -3,8 +3,6 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, date
 
-practice_date = date(2019, 9, 24)
-#сделать обновляемую дату
 
 def get_html_page(url):
     news_request = requests.get(url)
@@ -23,8 +21,9 @@ def find_articles(html_page):
     return headers
 
 def publish_report(path, headers):
+    now = datetime.now()
     articles = [{'title': i} for i in headers]
-    artjson = {'url': 'https://sobesednik.ru/psychology', 'creation Date': '{0}'.format(practice_date),
+    artjson = {'url': 'https://sobesednik.ru/psychology', 'creation Date': '{0}'.format(now.date()),
                'articles': articles}
     with open(path, "w") as write_file:
         json.dump(artjson, write_file)

@@ -1,3 +1,5 @@
 requests
+flask
 bs4
 datetime
+gunicorn

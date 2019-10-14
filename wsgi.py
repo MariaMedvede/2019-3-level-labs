@@ -15,7 +15,6 @@ def start():
         articles = data["articles"]
     return render_template('template.html', link=link, list=articles)
 
-
 @app.route('/process_data/', methods=['POST'])
 def doit():
     return redirect(url_for("start"))
